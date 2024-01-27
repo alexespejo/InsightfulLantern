@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+import { signOut } from "next-auth/react";
+import React, { useState } from "react";
 
 const Navbar = () => {
   return (
@@ -23,7 +25,7 @@ const Navbar = () => {
               <ul className="p-2 bg-base-100 rounded-t-none">
                 <li><a>Account</a></li>
                 <li><a>Settings</a></li>
-                <li><a>Log Out</a></li>
+                <li><a onClick={() => signOut()}>Log Out</a></li>
               </ul>
             </details>
           </li>
