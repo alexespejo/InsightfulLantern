@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from google.cloud import language_v2
 import firebase_admin
@@ -58,3 +58,18 @@ def create_post():
 @app.route("/")
 def hello_world():
     return {"hello" : "test"}
+
+@app.route('/api/post_example', methods=['POST'])
+def post_example():
+    try:
+        # Get the JSON data from the request body
+        data = request.json
+
+        # Process the data (you can perform any operations here)
+        result = {"message": "Received data successfully", "data": data}
+
+        # Return a JSON response
+        return jsonify(result), 200
+    except Exception as e:
+        # Handle any exceptions that might occur
+        return jsonify({"error": str(e)}), 500
