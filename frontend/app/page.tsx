@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import Navbar from "./components/Navbar";
 import React, { useEffect, useState } from "react";
 // import CircularMenu from "./components/Moon/moon";
-import { motion, MotionStyle } from "framer-motion";
+import { motion, MotionStyle, Variants } from "framer-motion";
 
 export default function Home() {
  const session = useSession({
@@ -17,7 +17,7 @@ export default function Home() {
  const [lantern, setLantern] = useState(50);
  const [windowWidth, setWindowWidth] = useState(0);
 
- const balloonVariants: MotionStyle = {
+ const balloonVariants: Variants = {
   initial: { y: 700, opacity: 0, scale: 1 },
   animate: { y: -500, opacity: 1, scale: 1 },
   exit: { opacity: 0, y: -505 }, // Slightly above the top of the screen
