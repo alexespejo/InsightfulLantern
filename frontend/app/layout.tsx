@@ -9,7 +9,7 @@ export default async function RootLayout({
 }) {
  return (
   <html lang="en" className="h-full bg-gray-900">
-   <body className="h-full">
+   <body className="h-full overflow-y-hidden">
     <SessionProvider>
      {" "}
      <LogoutButton />
