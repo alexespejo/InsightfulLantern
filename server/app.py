@@ -75,20 +75,56 @@ def create_reply():
 
         result = {"message": "Received data", "data": data}
 
-        general_collection = db.collection(data["category"]).document(data["uid"])
+        post_collection = db.collection(data["category"]).document(data["uid"])
 
-        general_document = general_collection.get()
-        replies = general_document.to_dict().get('replies', {})
+        post_document = post_collection.get()
+        replies = post_document.to_dict().get('replies', {})
 
         replies[data["ruid"]] = data["content"]
 
-        general_collection.set({'replies': replies}, merge=True) 
+        post_collection.set({'replies': replies}, merge=True) 
 
         return jsonify(result), 200
     
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/update", methods=['POST'])
+def update():
+     
+    try:
+        data = request.json
+        
+        result = {"message": "Received data", "data": data}
+
+        post_collection = db.collection(CATEGORIES[data["category"]]).document(data["uid"])
+        new_post_score = analyzeSentiment(data["new_content"])
+
+        post_document = post_collection.get()
+        post_replies = post_document.to_dict().get('replies', {}) 
+        post_collection.update({
+             'title': data["new_title"],
+             'content': data["new_content"],
+             'replies': post_replies,
+             'score': new_post_score
+        })
+        return jsonify(result), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/delete", methods=['POST'])
+def delete():
+     try:
+         data = request.json
+         result = {"message": "Received data", "data": data}
+
+         db.collection(CATEGORIES[data["category"]]).document(data["uid"]).delete()
+         return jsonify(result), 200
+     except Exception as e:
+        return jsonify({"error": str(e)}), 500
+          
 
 @app.route("/")
 def hello_world():
