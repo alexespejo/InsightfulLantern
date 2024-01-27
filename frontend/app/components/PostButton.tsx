@@ -4,7 +4,7 @@ import Link from "next/link";
 const PostButton = () => {
 
   return (
-    <Link href="/screens/create-post/page">
+    <Link href="/screens/create-post">
     <button
       className="post-button"
       style={{

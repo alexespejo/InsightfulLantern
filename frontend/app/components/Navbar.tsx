@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="flex-1">
         {/* Use an anchor tag to wrap the image */}
         <a href="/profile" className="btn btn-ghost text-xl">
-          <img className="mx-auto h-12 w-auto" src="/assets/logo.png" alt="Logo" />
+          <Link href={"/"}><img className="mx-auto h-12 w-auto" src="/assets/logo.png" alt="Logo" /></Link>
         </a>
       </div>
       <div className="flex-none">
@@ -30,7 +30,7 @@ const Navbar = () => {
               {/* Dropdown menu */}
               <ul className="p-2 bg-base-100 rounded-t-none">
                 <li><a>Account</a></li>
-                <li><a>Settings</a></li>
+                <li><a></a></li>
                 <li><a style={{color:"red",}} onClick={() => signOut()}>Log Out</a></li>
               </ul>
             </details>
