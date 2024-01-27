@@ -1,29 +1,36 @@
-import React from 'react'
+import React from 'react';
 
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
-    <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
-    </div>
-    <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
-        <li><a>Link</a></li>
-        <li>
+      <div className="flex-1">
+        {/* Use an anchor tag to wrap the image */}
+        <a href="/profile" className="btn btn-ghost text-xl">
+          <img className="mx-auto h-12 w-auto" src="/assets/logo.png" alt="Logo" />
+        </a>
+      </div>
+      <div className="flex-none">
+        <ul className="menu menu-horizontal px-3">
+        <li><a>Home</a></li>
+        <li><a>About</a></li>
+          {/* User dropdown */}
+          <li>
             <details>
-            <summary>
-                Parent
-            </summary>
-            <ul className="p-2 bg-base-100 rounded-t-none">
-                <li><a>Link 1</a></li>
-                <li><a>Link 2</a></li>
-            </ul>
+              <summary>
+                  <img src="/assets/userprofile.png" alt="Profile" className="h-8 w-8 rounded-full" />
+              </summary>
+              {/* Dropdown menu */}
+              <ul className="p-2 bg-base-100 rounded-t-none">
+                <li><a>Account</a></li>
+                <li><a>Settings</a></li>
+                <li><a>Log Out</a></li>
+              </ul>
             </details>
-        </li>
+          </li>
         </ul>
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
