@@ -1,10 +1,8 @@
-import Image from "next/image";
-import Navbar from "./components/Navbar";
+import React from 'react'
 
-export default function Home() {
+const Navbar = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-       <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100">
     <div className="flex-1">
         <a className="btn btn-ghost text-xl">daisyUI</a>
     </div>
@@ -25,8 +23,7 @@ export default function Home() {
         </ul>
     </div>
     </div>
-
-    <button className="btn">Hello World</button>
-    </main>
-  );
+  )
 }
+
+export default Navbar
