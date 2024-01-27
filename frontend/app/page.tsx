@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import React, { useEffect, useState } from "react";
 // import CircularMenu from "./components/Moon/moon";
 import { motion, MotionStyle, Variants } from "framer-motion";
+import PostButton from "./components/PostButton";
 
 export default function Home() {
  const [posts, setPosts] = useState([]);
@@ -101,6 +102,9 @@ export default function Home() {
        </div>
       </div>
       </div>
+      <PostButton onClick={function (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+                throw new Error("Function not implemented.");
+            } } />
      </>
     );
    })}

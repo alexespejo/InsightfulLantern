@@ -4,7 +4,11 @@ import React, { useState } from "react";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100" style={{ zIndex: 9999 }}>
+    <div className="navbar bg-base-100" 
+    style={{ 
+      position: "fixed",
+      zIndex: "1000", 
+    }}>
       <div className="flex-1">
         {/* Use an anchor tag to wrap the image */}
         <a href="/profile" className="btn btn-ghost text-xl">
@@ -25,7 +29,7 @@ const Navbar = () => {
               <ul className="p-2 bg-base-100 rounded-t-none">
                 <li><a>Account</a></li>
                 <li><a>Settings</a></li>
-                <li><a onClick={() => signOut()}>Log Out</a></li>
+                <li><a style={{color:"red",}} onClick={() => signOut()}>Log Out</a></li>
               </ul>
             </details>
           </li>
