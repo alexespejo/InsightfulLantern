@@ -1,6 +1,7 @@
 'use client';
 import { signOut, useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
+import Navbar from './components/Navbar';
 
 export default function Home() {
   const session = useSession({
@@ -10,7 +11,8 @@ export default function Home() {
     },
   });
   return (
-    <div className="p-8">
+    <div>
+      <Navbar />
       <div className='text-white'>{session?.data?.user?.email }</div>
       <button className='text-white' onClick={() => signOut()}>Logout</button>
     </div>
