@@ -1,6 +1,10 @@
-from flask import Flask
+from flask import Flask, request
+from flask_cors import CORS
 from google.cloud import language_v2
+import firebase_admin
+from firebase_admin import credentials, firestore
 app = Flask(__name__)
+CORS(app)
 
 
 def analyzeSentiment(text_content: str) -> None:
@@ -29,6 +33,27 @@ def analyzeSentiment(text_content: str) -> None:
 
     print(f"Language of the text: {response.language_code}")
     return response.document_sentiment.score
+
+@app.route("/create", methods = ["POST"])
+def create_post():
+    if not firebase_admin._apps:
+        cred = firebase_admin.credentials.Certificate("./uci-hack-2024-firebase-adminsdk-81ie2-28d5c8fd40.json")
+        app = firebase_admin.initialize_app(cred)
+    else:
+        app = firebase_admin.get_app()
+    db = firestore.client()
+
+    general_collection = db.collection('General')
+
+    general_title = request.form.get("title", 'Not found')
+    general_content = request.form.get("content", 'Not found')
+
+    general_collection.add({
+        'title': general_title,
+        'content': general_content
+    })
+
+    return general_title
 
 @app.route("/")
 def hello_world():
