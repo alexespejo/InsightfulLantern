@@ -2,9 +2,9 @@
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import Navbar from "./components/Navbar";
-import React, { useState, useEffect } from "react";
-import CircularMenu from "./components/Moon/moon";
-import { motion, Variant, MotionStyle } from "framer-motion";
+import React, { useEffect, useState } from "react";
+// import CircularMenu from "./components/Moon/moon";
+import { motion, MotionStyle, Variants } from "framer-motion";
 
 export default function Home() {
  const imgStyle = {
@@ -31,7 +31,7 @@ export default function Home() {
   return () => window.removeEventListener("resize", handleResize);
  }, []); // Empty dependency array to run effect only once
 
- const balloonVariants: Variant = {
+ const balloonVariants: Variants = {
   initial: { y: 700, opacity: 0.5, scale: 1 },
   animate: { y: -500, opacity: 1, scale: 1 },
   exit: { opacity: 0, y: -505 }, // Slightly above the top of the screen
