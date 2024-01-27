@@ -1,20 +1,14 @@
-'use client';
-import { signOut, useSession } from 'next-auth/react';
-import { redirect } from 'next/navigation';
-
+"use client";
+import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
 export default function Home() {
-  const session = useSession({
-    required: true,
-    onUnauthenticated() {
-      redirect('/signin');
-    },
-  });
-  return (
-    <div className="p-8">
-      <div className='text-white'>{session?.data?.user?.email }</div>
-      <button className='text-white' onClick={() => signOut()}>Logout</button>
-    </div>
-  )
+ const session = useSession({
+  required: true,
+  onUnauthenticated() {
+   redirect("/signin");
+  },
+ });
+ return <div className="p-8">Doing someting</div>;
 }
 
-Home.requireAuth = true
+Home.requireAuth = true;
