@@ -7,7 +7,7 @@ function LogoutButton() {
  return (
   <div>
    {" "}
-   <div className="text-white">{session?.data?.user?.email}</div>
+   {/* <div className="text-white">{session?.data?.user?.email}</div> */}
    {!session ? (
     <button className="text-white" onClick={() => signOut()}>
      Logout

@@ -7,6 +7,8 @@ import React, { useEffect, useState } from "react";
 import { motion, MotionStyle, Variants } from "framer-motion";
 
 export default function Home() {
+ const [posts, setPosts] = useState([]);
+
  const imgStyle = {
   cursor: "pointer",
  };
@@ -37,8 +39,8 @@ export default function Home() {
  };
 
  const balloonStyle: MotionStyle = {
-  width: "100px",
-  height: "100px",
+  width: "150px",
+  height: "150px",
   borderRadius: "50%",
   background: "transparent",
   position: "absolute",
@@ -73,16 +75,23 @@ export default function Home() {
        }}
       >
        {/* Image */}
-       <label htmlFor={`modal-${index}`}>
+       <label data-tip="hello hello hello hello" className="tooltip text-lg" htmlFor={`modal-${index}`}>
         <img style={imgStyle} src="assets/lantern.png"></img>
        </label>
       </motion.div>
 
       {/* Modal */}
-      <input type="checkbox" id={`modal-${index}`} className="modal-toggle" />
+      <div className="tooltip">
+      <input type="checkbox" id={`modal-${index}`} className="modal-toggle"/>
       <div className="modal" role="dialog">
        <div className="modal-box">
         <h3 className="font-bold text-lg">{index}</h3>
+        <h3>Category</h3>
+        <textarea></textarea>
+        <h3>Title</h3>
+        <textarea></textarea>
+        <h3>Post</h3>
+        <textarea></textarea>
         {/* <p className="py-4">This modal works with a hidden checkbox!</p> */}
         <div className="modal-action">
          <label htmlFor={`modal-${index}`} className="btn">
@@ -90,6 +99,7 @@ export default function Home() {
          </label>
         </div>
        </div>
+      </div>
       </div>
      </>
     );
