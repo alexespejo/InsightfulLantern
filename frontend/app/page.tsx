@@ -19,13 +19,12 @@ export default function Home() {
  });
 
  const [lantern, setLantern] = useState(50);
-
+ const [windowWidth, setWindowWidth] = useState(0);
  // Use useEffect to access window.innerWidth
  useEffect(() => {
+  setWindowWidth(window.innerWidth);
   const handleResize = () => {
-   setLantern(
-    (prev) => Math.floor(Math.random() * (window.innerWidth - 50)) + 50
-   );
+   setLantern((prev) => Math.floor(Math.random() * (windowWidth - 50)) + 50);
   };
   window.addEventListener("resize", handleResize);
   return () => window.removeEventListener("resize", handleResize);
@@ -60,7 +59,7 @@ export default function Home() {
        key={index}
        style={{
         ...balloonStyle,
-        left: `${Math.random() * (window.innerWidth - 50)}px`,
+        left: `${Math.random() * (windowWidth - 50)}px`,
        }}
        initial="initial"
        animate="animate"
