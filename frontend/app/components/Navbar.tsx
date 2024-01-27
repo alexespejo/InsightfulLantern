@@ -1,6 +1,7 @@
 'use client';
 import { signOut } from "next-auth/react";
 import React, { useState } from "react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -17,8 +18,9 @@ const Navbar = () => {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-3">
-        <li><a>Home</a></li>
-        <li><a>About</a></li>
+        <Link href="/"><li><a>Home</a></li></Link>
+        <Link href="/screens/category"><li><a>Category</a></li></Link>
+        <Link href="/screens/about"><li><a>About</a></li></Link>
           {/* User dropdown */}
           <li>
             <details>

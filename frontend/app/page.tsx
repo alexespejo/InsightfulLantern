@@ -21,7 +21,7 @@ export default function Home() {
   },
  });
 
- const [lantern, setLantern] = useState(50);
+ const [lantern, setLantern] = useState(250);
  const [windowWidth, setWindowWidth] = useState(0);
  // Use useEffect to access window.innerWidth
  useEffect(() => {
@@ -34,7 +34,7 @@ export default function Home() {
  }, []); // Empty dependency array to run effect only once
 
  const balloonVariants: Variants = {
-  initial: { y: 700, opacity: 0.5, scale: 1 },
+  initial: { y: 700, opacity: 0, scale: 1 },
   animate: { y: -500, opacity: 1, scale: 1 },
   exit: { opacity: 0, y: -505 }, // Slightly above the top of the screen
  };
@@ -54,6 +54,7 @@ export default function Home() {
 
  return (
   <div>
+  <PostButton />
    <Navbar />
    {[...Array(lantern)].map((_, index) => {
     return (
@@ -102,9 +103,6 @@ export default function Home() {
        </div>
       </div>
       </div>
-      <PostButton onClick={function (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-                throw new Error("Function not implemented.");
-            } } />
      </>
     );
    })}
