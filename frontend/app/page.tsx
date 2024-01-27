@@ -23,7 +23,7 @@ export default function Home() {
   exit: { opacity: 0, y: -505 }, // Slightly above the top of the screen
  };
 
- const balloonStyle = {
+ const balloonStyle: MotionStyle = {
   width: "100px",
   height: "100px",
   borderRadius: "50%",
