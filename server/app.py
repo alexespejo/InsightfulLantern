@@ -6,6 +6,12 @@ from firebase_admin import credentials, firestore
 app = Flask(__name__)
 CORS(app)
 
+if not firebase_admin._apps:
+        cred = firebase_admin.credentials.Certificate("./uci-hack-2024-firebase-adminsdk-81ie2-28d5c8fd40.json")
+        application = firebase_admin.initialize_app(cred)
+else:
+        application = firebase_admin.get_app()
+db = firestore.client()
 
 def analyzeSentiment(text_content: str) -> None:
     client = language_v2.LanguageServiceClient()
@@ -24,6 +30,7 @@ def analyzeSentiment(text_content: str) -> None:
     response = client.analyze_sentiment(
         request={"document": document, "encoding_type": encoding_type}
     )
+
     print(f"Document sentiment score: {response.document_sentiment.score}")
     print(f"Document sentiment magnitude: {response.document_sentiment.magnitude}")
     for sentence in response.sentences:
@@ -36,40 +43,49 @@ def analyzeSentiment(text_content: str) -> None:
 
 @app.route("/create", methods = ["POST"])
 def create_post():
-    if not firebase_admin._apps:
-        cred = firebase_admin.credentials.Certificate("./uci-hack-2024-firebase-adminsdk-81ie2-28d5c8fd40.json")
-        app = firebase_admin.initialize_app(cred)
-    else:
-        app = firebase_admin.get_app()
-    db = firestore.client()
 
     general_collection = db.collection('General')
 
     general_title = request.form.get("title", 'Not found')
     general_content = request.form.get("content", 'Not found')
 
+    general_score = analyzeSentiment(general_content)
+
     general_collection.add({
         'title': general_title,
-        'content': general_content
+        'content': general_content,
+        'score': general_score,
+        'replies': {}
     })
 
     return general_title
+
+@app.route("/createreply", methods=['POST'])
+def create_reply():
+    
+    try: 
+
+        data = request.json
+
+        result = {"message": "Received data", "data": data}
+
+        general_collection = db.collection(data["category"]).document(data["uid"])
+
+        general_document = general_collection.get()
+        replies = general_document.to_dict().get('replies', {})
+
+        replies[data["ruid"]] = data["content"]
+
+        general_collection.set({'replies': replies}, merge=True) 
+
+        return jsonify(result), 200
+    
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 @app.route("/")
 def hello_world():
     return {"hello" : "test"}
 
-@app.route('/api/post_example', methods=['POST'])
-def post_example():
-    try:
-        # Get the JSON data from the request body
-        data = request.json
 
-        # Process the data (you can perform any operations here)
-        result = {"message": "Received data successfully", "data": data}
-
-        # Return a JSON response
-        return jsonify(result), 200
-    except Exception as e:
-        # Handle any exceptions that might occur
-        return jsonify({"error": str(e)}), 500
