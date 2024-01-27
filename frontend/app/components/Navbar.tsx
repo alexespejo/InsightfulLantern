@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100" style={{ zIndex: 9999 }}>
       <div className="flex-1">
         {/* Use an anchor tag to wrap the image */}
         <a href="/profile" className="btn btn-ghost text-xl">
