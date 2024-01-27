@@ -24,7 +24,7 @@ function CircularMenu() {
         .menuMoon
         {
             position: relative;
-            width: 600px;
+            width: 550px;
             height: 250px;
             background: #f0f0;
             display: flex;
@@ -39,7 +39,7 @@ function CircularMenu() {
             left: 0;
             margin-top: -20px;
             list-style: none;
-            transform-origin: 300px;
+            transform-origin: 265px;
             transition: 0.5s;
             transition-delay: calc(0.1s * var(--i));
             transform: rotate(0deg) translateX(80px);
@@ -105,7 +105,7 @@ function CircularMenu() {
       <div className="containerMoon">
         <div className={`menuMoon ${isActive ? 'activeMoon' : ''}`}>
           <div className="toggleMoon" onClick={toggleMenu}>
-            <img style={{ transform: "scale(5.0)" }} src="assets/moon.png" alt="Toggle Image" />
+            <img style={{ transform: "scale(5.0)" }} src="/assets/moon.png" alt="Toggle Image" />
           </div>
           <div className={`hideMoon ${isActive ? 'hiddenMoon' : 'hideMoon'}`}>
             <ul>

@@ -1,11 +1,10 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
+import Link from "next/link";
 
-interface PostButtonProps {
-  onClick: MouseEventHandler<HTMLButtonElement>;
-}
+const PostButton = () => {
 
-const PostButton: React.FC<PostButtonProps> = ({ onClick }) => {
   return (
+    <Link href="/screens/create-post/page">
     <button
       className="post-button"
       style={{
@@ -23,10 +22,10 @@ const PostButton: React.FC<PostButtonProps> = ({ onClick }) => {
         boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
         zIndex: "1000",
       }}
-      onClick={onClick}
     >
       +
     </button>
+    </Link>
   );
 };
 

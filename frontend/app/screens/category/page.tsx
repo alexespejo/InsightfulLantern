@@ -1,12 +1,13 @@
 'use client';
 import Navbar from "@/app/components/Navbar";
 import React from "react";
+import CircularMenu from "@/app/components/Moon/moon";
 
-function Postpage() {
+function Category() {
  return <div>
     <Navbar />
-
+    <CircularMenu />
  </div>;
 }
 
-export default Postpage;
+export default Category;
