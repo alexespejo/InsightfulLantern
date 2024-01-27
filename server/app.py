@@ -12,10 +12,6 @@ if not firebase_admin._apps:
 else:
         application = firebase_admin.get_app()
 db = firestore.client()
-<<<<<<< HEAD
-
-=======
->>>>>>> 934872ec7e4c000684151490810d258da8f7d36b
 
 def analyzeSentiment(text_content: str) -> None:
     client = language_v2.LanguageServiceClient()
@@ -58,18 +54,12 @@ def create_post():
     general_collection.add({
         'title': general_title,
         'content': general_content,
-<<<<<<< HEAD
-        'replies': {}
-=======
         'score': general_score,
         'replies': {}
-
->>>>>>> 934872ec7e4c000684151490810d258da8f7d36b
     })
 
     return general_title
 
-<<<<<<< HEAD
 @app.route("/createreply", methods=['POST'])
 def create_reply():
     
@@ -92,17 +82,7 @@ def create_reply():
     
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
-=======
-@app.route("/createreply", methods=["POST"])
-def create_reply():
 
-
-
-
-    return "HIIIIII"
-
->>>>>>> 934872ec7e4c000684151490810d258da8f7d36b
 
 @app.route("/")
 def hello_world():
