@@ -58,8 +58,3 @@ def create_post():
 @app.route("/")
 def hello_world():
     return {"hello" : "test"}
-
-@app.route("/testinng_alex")
-def testing_alex():
-    name = request.form.get("name")
-    return name
