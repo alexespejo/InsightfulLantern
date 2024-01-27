@@ -12,7 +12,10 @@ if not firebase_admin._apps:
 else:
         application = firebase_admin.get_app()
 db = firestore.client()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 934872ec7e4c000684151490810d258da8f7d36b
 
 def analyzeSentiment(text_content: str) -> None:
     client = language_v2.LanguageServiceClient()
@@ -31,6 +34,7 @@ def analyzeSentiment(text_content: str) -> None:
     response = client.analyze_sentiment(
         request={"document": document, "encoding_type": encoding_type}
     )
+
     print(f"Document sentiment score: {response.document_sentiment.score}")
     print(f"Document sentiment magnitude: {response.document_sentiment.magnitude}")
     for sentence in response.sentences:
@@ -49,14 +53,23 @@ def create_post():
     general_title = request.form.get("title", 'Not found')
     general_content = request.form.get("content", 'Not found')
 
+    general_score = analyzeSentiment(general_content)
+
     general_collection.add({
         'title': general_title,
         'content': general_content,
+<<<<<<< HEAD
         'replies': {}
+=======
+        'score': general_score,
+        'replies': {}
+
+>>>>>>> 934872ec7e4c000684151490810d258da8f7d36b
     })
 
     return general_title
 
+<<<<<<< HEAD
 @app.route("/createreply", methods=['POST'])
 def create_reply():
     
@@ -80,7 +93,19 @@ def create_reply():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
+=======
+@app.route("/createreply", methods=["POST"])
+def create_reply():
+
+
+
+
+    return "HIIIIII"
+
+>>>>>>> 934872ec7e4c000684151490810d258da8f7d36b
 
 @app.route("/")
 def hello_world():
     return {"hello" : "test"}
+
+
