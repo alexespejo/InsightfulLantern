@@ -3,7 +3,7 @@ import { signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import Navbar from "./components/Navbar";
 import React from "react";
-import { useState } from "react";
+import CircularMenu from "./components/Moon/moon";
 
 export default function Home() {
   const session = useSession({
@@ -36,6 +36,7 @@ export default function Home() {
         </label>
         <button type="submit">Submit</button>
       </form>
+      <CircularMenu />
     </div>
   );
 }
