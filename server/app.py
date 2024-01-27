@@ -13,6 +13,8 @@ else:
         application = firebase_admin.get_app()
 db = firestore.client()
 
+CATEGORIES = ["Coding", "General", "Health", "Relationship", "Work", "School", "Family"]
+
 def analyzeSentiment(text_content: str) -> None:
     client = language_v2.LanguageServiceClient()
 
@@ -44,21 +46,25 @@ def analyzeSentiment(text_content: str) -> None:
 @app.route("/create", methods = ["POST"])
 def create_post():
 
-    general_collection = db.collection('General')
+    try:
+        data = request.json
+        result = {"message": "Received data", "data": data, "Category": CATEGORIES[data["category"]]}
+                  
+        post_collection = db.collection(CATEGORIES[data["category"]])
+        
+        post_score = analyzeSentiment(data["content"])
 
-    general_title = request.form.get("title", 'Not found')
-    general_content = request.form.get("content", 'Not found')
+        post_collection.add({
+            'title': data["title"],
+            'content': data["content"],
+            'score': post_score,
+            'replies': {}
+        })
 
-    general_score = analyzeSentiment(general_content)
+        return jsonify(result), 200
+    except Exception as e:
+         return jsonify({"error": str(e)}), 500
 
-    general_collection.add({
-        'title': general_title,
-        'content': general_content,
-        'score': general_score,
-        'replies': {}
-    })
-
-    return general_title
 
 @app.route("/createreply", methods=['POST'])
 def create_reply():
