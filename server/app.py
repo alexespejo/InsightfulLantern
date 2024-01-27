@@ -1,8 +1,10 @@
 from flask import Flask, request
+from flask_cors import CORS
 from google.cloud import language_v2
 import firebase_admin
 from firebase_admin import credentials, firestore
 app = Flask(__name__)
+CORS(app)
 
 
 def analyzeSentiment(text_content: str) -> None:
@@ -43,15 +45,15 @@ def create_post():
 
     general_collection = db.collection('General')
 
-    general_title = request.args.get('title', 'Not found')
-    general_content = request.args.get('content', 'Not found')
+    general_title = request.form.get("title", 'Not found')
+    general_content = request.form.get("content", 'Not found')
 
     general_collection.add({
         'title': general_title,
         'content': general_content
     })
 
-    return 'hello world'
+    return general_title
 
 @app.route("/")
 def hello_world():

@@ -2,6 +2,8 @@
 import { signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import Navbar from "./components/Navbar";
+import React from "react";
+import { useState } from "react";
 
 export default function Home() {
   const session = useSession({
@@ -10,6 +12,7 @@ export default function Home() {
       redirect("/signin");
     },
   });
+
   return (
     <div>
       <Navbar />
@@ -18,30 +21,20 @@ export default function Home() {
         Logout
       </button>
 
-      <form action="/create" method="POST" className="d-flex flex-column">
+      <form action="/create" method="post" className="d-flex flex-column">
         <label className="form-control w-full max-w-xs">
           <div className="label">
             <span className="label-text">Title</span>
           </div>
-          <input
-            type="text"
-            name="title"
-            placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
-          />
+          <input type="text" className="title" placeholder="Type here" />
         </label>
         <label className="form-control w-full max-w-xs">
           <div className="label">
             <span className="label-text">Content</span>
           </div>
-          <input
-            type="text"
-            name="content"
-            placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
-          />
+          <input type="text" className="content" placeholder="Type here" />
         </label>
-        <input type="submit" value="Submit" />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
