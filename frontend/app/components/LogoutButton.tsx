@@ -8,9 +8,13 @@ function LogoutButton() {
   <div>
    {" "}
    <div className="text-white">{session?.data?.user?.email}</div>
-   <button className="text-white" onClick={() => signOut()}>
-    Logout
-   </button>
+   {!session ? (
+    <button className="text-white" onClick={() => signOut()}>
+     Logout
+    </button>
+   ) : (
+    <div></div>
+   )}
   </div>
  );
 }
