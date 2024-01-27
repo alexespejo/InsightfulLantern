@@ -1,5 +1,6 @@
 import "./globals.css";
 import SessionProvider from "./SessionProvider";
+import LogoutButton from "./components/LogoutButton";
 
 export default async function RootLayout({
  children,
@@ -9,7 +10,11 @@ export default async function RootLayout({
  return (
   <html lang="en" className="h-full bg-gray-900">
    <body className="h-full">
-    <SessionProvider>{children}</SessionProvider>
+    <SessionProvider>
+     {" "}
+     <LogoutButton />
+     {children}
+    </SessionProvider>
    </body>
   </html>
  );
