@@ -55,10 +55,9 @@ const Navbar = () => {
        {/* Dropdown menu */}
        <ul className="p-2 bg-base-100 rounded-t-none">
         <li>
+         <Link href={"/screens/profile"}>
          <button className="dropdown-btn">Account</button>
-        </li>
-        <li>
-         <button className="dropdown-btn">Settings</button>
+         </Link>
         </li>
         <li>
          <button
