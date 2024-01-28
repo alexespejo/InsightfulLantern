@@ -78,11 +78,9 @@ def create_post():
             'replies': {},
             'user': data["user"]
         })
-        print("WORKED")
         return jsonify(result), 200
     except Exception as e:
          return jsonify({"error": str(e)}), 500
-         print("ERROR")
 
 
 @app.route("/createreply", methods=['POST'])
@@ -116,7 +114,6 @@ def update():
      
     try:
         data = request.json
-        
         result = {"message": "Received data", "data": data}
 
         post_collection = db.collection(CATEGORIES[data["category"]]).document(data["uid"])
