@@ -3,23 +3,38 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { auth } from "../../firebase";
-
+import { createUser } from "../../firebase/firestore";
+import Image from "next/image";
 export default function Signup() {
  const [email, setEmail] = useState("");
  const [password, setPassword] = useState("");
  const [passwordAgain, setPasswordAgain] = useState("");
 
  const signup = () => {
-  createUserWithEmailAndPassword(auth, email, password);
+  createUserWithEmailAndPassword(auth, email, password)
+   .then((userCredential) => {
+    const user = userCredential.user;
+    createUser(user.uid, user?.email);
+   })
+   .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+   });
  };
 
  return (
   <>
    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-    <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-     <img className="mx-auto h-10 w-auto" src="logo.png" alt="Your Company" />
+    <div className="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col">
+     <Image
+      src="/assets/logo.png"
+      className="self-center"
+      width={200}
+      height={200}
+      alt="logo"
+     />
      <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
-      Sign up
+      WELCOME!
      </h2>
     </div>
 
