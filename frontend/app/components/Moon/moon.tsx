@@ -24,7 +24,7 @@ function CircularMenu() {
         .menuMoon
         {
             position: relative;
-            width: 550px;
+            width: 510px;
             height: 250px;
             background: #f0f0;
             display: flex;
@@ -39,7 +39,7 @@ function CircularMenu() {
             left: 0;
             margin-top: -20px;
             list-style: none;
-            transform-origin: 265px;
+            transform-origin: 250px;
             transition: 0.5s;
             transition-delay: calc(0.1s * var(--i));
             transform: rotate(0deg) translateX(80px);
@@ -51,21 +51,33 @@ function CircularMenu() {
             transform: rotate(calc(360deg / 8 * var(--i)));
         }
         
-        .menuItemMoon a
-        {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 70px;
-            height: 70px;
-            background: #fff;
-            border-radius: 50%;
-            transform: rotate(calc(360deg / 8 * var(--i)));
-            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
-            color: #111;
-            transition: 0.5s;
+        .menuItemMoon a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 70px;
+          height: 70px;
+          background: radial-gradient(
+            circle at 50% 50%,
+            #fff3d6 0%,
+            #ffda7b 51.04%,
+            #ffa700 100%
+          );
+          border-radius: 50%;
+          transform: rotate(calc(360deg / 8 * var(--i)));
+          box-shadow: 0 0 20px yellow;
+          color: #111;
+          animation: glow 1.5s infinite alternate;
         }
         
+        @keyframes glow {
+          from {
+              box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
+          }
+          to {
+              box-shadow: 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow;
+          }
+      }
         .menuItemMoon a:hover
         {
             color: #ff1252;
