@@ -14,7 +14,7 @@ const Navbar = () => {
   >
    <div className="flex-1">
     {/* Use an anchor tag to wrap the image */}
-    <a href="/profile" className="btn text-xl h-fit p-2">
+    <a href="/" className="btn text-xl h-fit p-2">
      <Image
       className="mask mask-decagon"
       src="/assets/logo.png"
