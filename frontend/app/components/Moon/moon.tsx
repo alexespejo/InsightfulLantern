@@ -1,4 +1,3 @@
-import { transform } from "next/dist/build/swc";
 import  Link  from "next/link";
 import React, { useState } from "react";
 
@@ -134,7 +133,7 @@ function CircularMenu() {
             </li>
             <li style={{ "--i": 2 } as any} className="menuItemMoon">
               <Link href="/screens/categories/3">
-              <p style={{ transform: "rotate(180deg)" }}>Relationship</p>
+              <p style={{ transform: "rotate(180deg)" }}>Love</p>
               </Link>
             </li>
             <li style={{ "--i": 3 } as any} className="menuItemMoon">
@@ -147,7 +146,11 @@ function CircularMenu() {
               <p>Health</p>
               </Link>
             </li>
-          
+            <li style={{ "--i": 5 } as any} className="menuItemMoon">
+              <Link href="/family">
+              <p style={{ transform: "rotate(270deg)" }}>Anxiety</p>
+              </Link>
+            </li>
             <li style={{ "--i": 6 } as any} className="menuItemMoon">
               <Link href="/screens/categories/5">
               <p style={{ transform: "rotate(180deg)" }}>General</p>
@@ -158,6 +161,7 @@ function CircularMenu() {
               <p style={{ transform: "rotate(90deg)" }}>Family</p>
               </Link>
             </li>
+
             </ul>
           </div>
         </div>
