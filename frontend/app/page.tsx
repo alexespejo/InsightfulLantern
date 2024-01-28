@@ -1,57 +1,63 @@
 "use client";
-import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+// import { useSession } from "next-auth/react";
+// import { redirect } from "next/navigation";
 import Navbar from "./components/Navbar";
-import React, { useEffect, useState } from "react";
-// import CircularMenu from "./components/Moon/moon";
-import { motion, MotionStyle, Variants } from "framer-motion";
+// import React, { useEffect, useState } from "react";
+// import { motion, MotionStyle, Variants } from "framer-motion";
 import PostButton from "./components/PostButton";
 import RefreshButton from "./components/RefreshButton";
+import SpawnLanterns from "./components/SpawnLanterns";
 
 export default function Home() {
- const [posts, setPosts] = useState([]);
-
- const imgStyle = {
-  cursor: "pointer",
- };
-
- const session = useSession({
-  required: true,
-  onUnauthenticated() {
-   redirect("/screens/signin");
-  },
- });
-
- const [lantern, setLantern] = useState(250);
- const [windowWidth, setWindowWidth] = useState(0);
- // Use useEffect to access window.innerWidth
- useEffect(() => {
-  setWindowWidth(window.innerWidth);
-  const handleResize = () => {
-   setLantern((prev) => Math.floor(Math.random() * (windowWidth - 50)) + 50);
-  };
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
- }, []); // Empty dependency array to run effect only once
-
- const balloonVariants: Variants = {
-  initial: { y: 700, opacity: 0, scale: 1 },
-  animate: { y: -500, opacity: 1, scale: 1 },
-  exit: { opacity: 0, y: -505 }, // Slightly above the top of the screen
- };
-
- const balloonStyle: MotionStyle = {
-  width: "150px",
-  height: "150px",
-  borderRadius: "50%",
-  background: "transparent",
-  position: "absolute",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  fontSize: "14px",
-  color: "white",
- };
+ //  const session = useSession({
+ //   required: true,
+ //   onUnauthenticated() {
+ //    redirect("/screens/signin");
+ //   },
+ //  });
+ //  const [posts, setPosts] = useState([]);
+ //
+ //  const imgStyle = {
+ //   cursor: "pointer",
+ //  };
+ //
+ //  const session = useSession({
+ //   required: true,
+ //   onUnauthenticated() {
+ //    redirect("/screens/signin");
+ //   },
+ //  });
+ //
+ //  const [lantern, setLantern] = useState(250);
+ //  const [windowWidth, setWindowWidth] = useState(0);
+ //  // Use useEffect to access window.innerWidth
+ //  useEffect(() => {
+ //   setWindowWidth(window.innerWidth);
+ //   const handleResize = () => {
+ //    setLantern((prev) => Math.floor(Math.random() * (windowWidth - 50)) + 50);
+ //   };
+ //   window.addEventListener("resize", handleResize);
+ //   return () => window.removeEventListener("resize", handleResize);
+ //  }, []); // Empty dependency array to run effect only once
+ //
+ //  const balloonVariants: Variants = {
+ //   initial: { y: 700, opacity: 0, scale: 1 },
+ //   animate: { y: -500, opacity: 1, scale: 1 },
+ //   exit: { opacity: 0, y: -505 }, // Slightly above the top of the screen
+ //  };
+ //
+ //  const balloonStyle: MotionStyle = {
+ //   width: "150px",
+ //   height: "150px",
+ //   borderRadius: "50%",
+ //   background: "transparent",
+ //   position: "absolute",
+ //   display: "flex",
+ //   justifyContent: "center",
+ //   alignItems: "center",
+ //   fontSize: "14px",
+ //   color: "white",
+ //  };
 
  return (
   <div className="">
@@ -59,7 +65,8 @@ export default function Home() {
    <RefreshButton />
    <Navbar />
    <div className="">
-    {[...Array(lantern)].map((_, index) => {
+    <SpawnLanterns />
+    {/* {[...Array(lantern)].map((_, index) => {
      return (
       <>
        <motion.div
@@ -79,7 +86,6 @@ export default function Home() {
          yoyo: Infinity,
         }}
        >
-        {/* Image */}
         <label
          data-tip="hello hello hello hello"
          className="tooltip text-lg"
@@ -89,7 +95,6 @@ export default function Home() {
         </label>
        </motion.div>
 
-       {/* Modal */}
        <div className="tooltip">
         <input type="checkbox" id={`modal-${index}`} className="modal-toggle" />
         <div className="modal" role="dialog">
@@ -101,7 +106,6 @@ export default function Home() {
           <textarea></textarea>
           <h3>Post</h3>
           <textarea></textarea>
-          {/* <p className="py-4">This modal works with a hidden checkbox!</p> */}
           <div className="modal-action">
            <label htmlFor={`modal-${index}`} className="btn">
             Close!
@@ -112,7 +116,7 @@ export default function Home() {
        </div>
       </>
      );
-    })}
+    })} */}
    </div>
   </div>
  );
