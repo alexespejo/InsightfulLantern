@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const PostButton = () => {
  return (
-  <Link href="/screens/create-post/page">
+  <Link href="/screens/create-post">
    <span
     className="post-button lantern-btn fixed bottom-10 right-10"
     // style={{
