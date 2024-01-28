@@ -4,7 +4,7 @@ import SpawnLanterns from "@/app/components/SpawnLanterns";
 import PostButton from "@/app/components/PostButton";
 import Image from "next/image";
 import TitleCategory from "@/app/components/titleCategory";
-
+//Page
 export default function Page({ params }: { params: { slug: string } }) {
  const categories = [
   "Coding",
