@@ -17,10 +17,19 @@
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to top, rgb(4, 21, 39), rgb(1, 7, 15), rgb(4, 21, 39));
-    background-size: cover;
-    background-position: center;
+ color: #432810;
+ /* background-image: url("/Users/alex/Downloads/VS Code/InsightfulLantern/frontend/public/backdrops/starry.svg"); */
+ /* background-size: cover; */
+ /* background-repeat: no-repeat; */
+ /* background-attachment: fixed; */
+ background: linear-gradient(
+  to top,
+  rgb(4, 21, 39),
+  rgb(1, 7, 15),
+  rgb(4, 21, 39)
+ );
+ background-size: cover;
+ background-position: center;
 }
 
 @layer utilities {
@@ -44,8 +53,11 @@ body {
  padding: 0.55rem 1.25rem;
  transition: filter 0.1s ease, box-shadow 0.1s ease;
  display: block;
- width: -moz-max-content;
+ /* width: -moz-max-content; */
  width: max-content;
  margin: 0 auto;
 }
 
+.base-text {
+ color: #432810;
+}
