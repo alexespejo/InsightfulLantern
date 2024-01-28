@@ -7,7 +7,7 @@ function LogoutButton() {
  return (
   <div>
    {" "}
-   <div className="text-white">{JSON.stringify(session)}</div>
+   {/* <div className="text-white">{JSON.stringify(session)}</div> */}
    {!session ? (
     <button className="text-white" onClick={() => signOut()}>
      Logout
