@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
 function CircularMenu() {
- const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
- const toggleMenu = () => {
-  setIsActive(!isActive);
- };
+  const toggleMenu = () => {
+    setIsActive(!isActive);
+  };
 
- return (
-  <>
-   <style>
-    {`
+  return (
+    <>
+      <style>
+        {`
         .containerMoon
         {
             display: flex;
@@ -113,63 +113,63 @@ function CircularMenu() {
             visibility: visible;
         }
         `}
-   </style>
-   <div className="containerMoon">
-    <div className={`menuMoon ${isActive ? "activeMoon" : ""}`}>
-     <div className="toggleMoon" onClick={toggleMenu}>
-      <img
-       src="/assets/moon.png"
-       alt="Toggle Image"
-      />
-     </div>
-     <div className={`hideMoon ${isActive ? "hiddenMoon" : "hideMoon"}`}>
-      <ul>
-       <li style={{ "--i": 0 } as any} className="menuItemMoon">
-        <a href="/screens/categories/5">
-         <p style={{ transform: "rotate(360deg)" }}>School</p>
-        </a>
-       </li>
-       <li style={{ "--i": 1 } as any} className="menuItemMoon">
-        <a href="/screens/categories/0">
-         <p style={{ transform: "rotate(270deg)" }}>Coding</p>
-        </a>
-       </li>
-       <li style={{ "--i": 2 } as any} className="menuItemMoon">
-        <a style={{ transform: "rotate(270deg)" }} href="/screens/categories/3">
-         <p>Love</p>
-        </a>
-       </li>
-       <li style={{ "--i": 3 } as any} className="menuItemMoon">
-        <a href="/screens/categories/4">
-         <p style={{ transform: "rotate(90deg)" }}>Work</p>
-        </a>
-       </li>
-       <li style={{ "--i": 4 } as any} className="menuItemMoon">
-        <a href="/screens/categories/2">
-         <p>Health</p>
-        </a>
-       </li>
-       <li style={{ "--i": 5 } as any} className="menuItemMoon">
-        <a href="#">
-         <p style={{ transform: "rotate(270deg)" }}>Anxiety</p>
-        </a>
-       </li>
-       <li style={{ "--i": 6 } as any} className="menuItemMoon">
-        <a href="/screens/categories/5">
-         <p style={{ transform: "rotate(180deg)" }}>General</p>
-        </a>
-       </li>
-       <li style={{ "--i": 7 } as any} className="menuItemMoon">
-        <a href="/family">
-         <p style={{ transform: "rotate(90deg)" }}>Family</p>
-        </a>
-       </li>
-      </ul>
-     </div>
-    </div>
-   </div>
-  </>
- );
+      </style>
+      <div className="containerMoon">
+        <div className={`menuMoon ${isActive ? "activeMoon" : ""}`}>
+          <div className="toggleMoon" onClick={toggleMenu}>
+            <img src="/assets/moon.png" alt="Toggle Image" />
+          </div>
+          <div className={`hideMoon ${isActive ? "hiddenMoon" : "hideMoon"}`}>
+            <ul>
+              <li style={{ "--i": 0 } as any} className="menuItemMoon">
+                <a href="/screens/categories/5">
+                  <p style={{ transform: "rotate(360deg)" }}>School</p>
+                </a>
+              </li>
+              <li style={{ "--i": 1 } as any} className="menuItemMoon">
+                <a href="/screens/categories/0">
+                  <p style={{ transform: "rotate(270deg)" }}>Coding</p>
+                </a>
+              </li>
+              <li style={{ "--i": 2 } as any} className="menuItemMoon">
+                <a
+                  style={{ transform: "rotate(270deg)" }}
+                  href="/screens/categories/3"
+                >
+                  <p>Love</p>
+                </a>
+              </li>
+              <li style={{ "--i": 3 } as any} className="menuItemMoon">
+                <a href="/screens/categories/4">
+                  <p style={{ transform: "rotate(90deg)" }}>Work</p>
+                </a>
+              </li>
+              <li style={{ "--i": 4 } as any} className="menuItemMoon">
+                <a href="/screens/categories/2">
+                  <p>Health</p>
+                </a>
+              </li>
+              <li style={{ "--i": 5 } as any} className="menuItemMoon">
+                <a href="#">
+                  <p style={{ transform: "rotate(270deg)" }}>Anxiety</p>
+                </a>
+              </li>
+              <li style={{ "--i": 6 } as any} className="menuItemMoon">
+                <a href="/screens/categories/1">
+                  <p style={{ transform: "rotate(180deg)" }}>General</p>
+                </a>
+              </li>
+              <li style={{ "--i": 7 } as any} className="menuItemMoon">
+                <a href="/family">
+                  <p style={{ transform: "rotate(90deg)" }}>Family</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default CircularMenu;
