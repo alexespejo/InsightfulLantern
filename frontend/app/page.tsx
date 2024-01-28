@@ -3,7 +3,6 @@ import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import Navbar from "./components/Navbar";
 import React, { useEffect, useState } from "react";
-// import CircularMenu from "./components/Moon/moon";
 import { motion, MotionStyle, Variants } from "framer-motion";
 import PostButton from "./components/PostButton";
 import RefreshButton from "./components/RefreshButton";
