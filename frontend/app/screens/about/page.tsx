@@ -11,6 +11,7 @@ const App = () => {
       className="app-container "
       style={{
         fontFamily: "Mulish, sans-serif",
+        color: "white",
       }}
     >
       <Navbar />
