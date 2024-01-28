@@ -22,19 +22,19 @@ const Navbar = () => {
       height={50}
       alt="logo"
      />
-     <h1>InsightfulLanterns</h1>
+     <h1 className="text-slate-300">InsightfulLanterns</h1>
     </a>
    </div>
    <div className="flex-none">
     <ul className="menu menu-horizontal px-3">
      <li>
       <Link href="/">
-       <button className="btn">Home</button>
+       <button className="btn text-slate-300">Home</button>
       </Link>
      </li>
      <li>
       <Link href="/screens/about">
-       <button className="btn">About</button>
+       <button className="btn text-slate-300">About</button>
       </Link>
      </li>
      {/* User dropdown */}
@@ -51,7 +51,7 @@ const Navbar = () => {
        <ul className="p-2 bg-base-100 rounded-t-none">
         <li>
         <Link href="/screens/profile">
-         <button className="dropdown-btn">Account</button>
+         <button className="dropdown-btn text-slate-300">Account</button>
         </Link>
         </li>
         <li>
