@@ -95,22 +95,27 @@ function SpawnLanterns({ category }: any) {
 
       {/* Modal */}
       <div className="tooltip">
-       <input type="checkbox" id={`modal-${index}`} className="modal-toggle" />
-       <div className="modal" role="dialog">
-        <div className="modal-box text-slate-300 modal-creamy base-text h-1/2">
-         <h3 className=" w-2/3 text-left font-bold border-b-2 base-border text-2xl">
-          {e?.data?.title}
-         </h3>
-         <h3>Category</h3>
-         <p className="text-left">{e?.data?.content}</p>
-         {/* <p className="py-4">This modal works with a hidden checkbox!</p> */}
-         <div className="modal-action absolute top-0 right-5">
-          <label htmlFor={`modal-${index}`} className="link base-text">
-           Return &rarr;
-          </label>
-         </div>
+        <input type="checkbox" id={`modal-${index}`} className="modal-toggle" />
+        <div className="modal" role="dialog">
+          <div className="modal-box text-slate-300 modal-creamy base-text h-1/2">
+            <h3 className="w-2/3 text-left font-bold border-b-2 base-border text-2xl">
+              {e?.data?.title}
+            </h3>
+            <p className="text-left">{e?.data?.content}</p>
+            
+            {/* Text input and submit button */}
+            <div className="flex items-center justify-between mt-4">
+              <input type="text" className=" input input-bordered bg-creamy base-border border-2 w-10/12" placeholder="Your reply here" />
+              <button className="link base-text">Reply</button>
+            </div>
+            
+            <div className="modal-action absolute top-0 right-5">
+              <label htmlFor={`modal-${index}`} className="link base-text">
+                Return &rarr;
+              </label>
+            </div>
+          </div>
         </div>
-       </div>
       </div>
      </>
     );
