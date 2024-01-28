@@ -18,8 +18,8 @@ const Navbar = () => {
      <Image
       className="mask mask-decagon"
       src="/assets/logo.png"
-      width={90}
-      height={90}
+      width={50}
+      height={50}
       alt="logo"
      />
      <h1>InsightfulLanterns</h1>
