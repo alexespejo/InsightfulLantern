@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 // import CircularMenu from "./components/Moon/moon";
 import { motion, MotionStyle, Variants } from "framer-motion";
 import PostButton from "./components/PostButton";
+import RefreshButton from "./components/RefreshButton";
 
 export default function Home() {
  const [posts, setPosts] = useState([]);
@@ -53,63 +54,66 @@ export default function Home() {
  };
 
  return (
-  <div>
+  <div className="">
    <PostButton />
+   <RefreshButton />
    <Navbar />
-   {[...Array(lantern)].map((_, index) => {
-    return (
-     <>
-      <motion.div
-       key={index}
-       style={{
-        ...balloonStyle,
-        left: `${Math.random() * (windowWidth - 50)}px`,
-       }}
-       initial="initial"
-       animate="animate"
-       exit="exit"
-       variants={balloonVariants}
-       transition={{
-        duration: Math.floor(Math.random() * 6) + 10,
-        ease: "linear",
-        delay: index * 0.5,
-        yoyo: Infinity,
-       }}
-      >
-       {/* Image */}
-       <label
-        data-tip="hello hello hello hello"
-        className="tooltip text-lg"
-        htmlFor={`modal-${index}`}
+   <div className="">
+    {[...Array(lantern)].map((_, index) => {
+     return (
+      <>
+       <motion.div
+        key={index}
+        style={{
+         ...balloonStyle,
+         left: `${Math.random() * (windowWidth - 50)}px`,
+        }}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={balloonVariants}
+        transition={{
+         duration: Math.floor(Math.random() * 6) + 10,
+         ease: "linear",
+         delay: index * 0.5,
+         yoyo: Infinity,
+        }}
        >
-        <img style={imgStyle} src="assets/lantern.png"></img>
-       </label>
-      </motion.div>
+        {/* Image */}
+        <label
+         data-tip="hello hello hello hello"
+         className="tooltip text-lg"
+         htmlFor={`modal-${index}`}
+        >
+         <img style={imgStyle} src="assets/lantern.png"></img>
+        </label>
+       </motion.div>
 
-      {/* Modal */}
-      <div className="tooltip">
-       <input type="checkbox" id={`modal-${index}`} className="modal-toggle" />
-       <div className="modal" role="dialog">
-        <div className="modal-box">
-         <h3 className="font-bold text-lg">{index}</h3>
-         <h3>Category</h3>
-         <textarea></textarea>
-         <h3>Title</h3>
-         <textarea></textarea>
-         <h3>Post</h3>
-         <textarea></textarea>
-         {/* <p className="py-4">This modal works with a hidden checkbox!</p> */}
-         <div className="modal-action">
-          <label htmlFor={`modal-${index}`} className="btn">
-           Close!
-          </label>
+       {/* Modal */}
+       <div className="tooltip">
+        <input type="checkbox" id={`modal-${index}`} className="modal-toggle" />
+        <div className="modal" role="dialog">
+         <div className="modal-box">
+          <h3 className="font-bold text-lg">{index}</h3>
+          <h3>Category</h3>
+          <textarea></textarea>
+          <h3>Title</h3>
+          <textarea></textarea>
+          <h3>Post</h3>
+          <textarea></textarea>
+          {/* <p className="py-4">This modal works with a hidden checkbox!</p> */}
+          <div className="modal-action">
+           <label htmlFor={`modal-${index}`} className="btn">
+            Close!
+           </label>
+          </div>
          </div>
         </div>
        </div>
-      </div>
-     </>
-    );
-   })}
+      </>
+     );
+    })}
+   </div>
   </div>
  );
 }
