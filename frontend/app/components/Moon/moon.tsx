@@ -1,5 +1,6 @@
 import { transform } from "next/dist/build/swc";
 import React, { useState } from "react";
+import Link from "next/link";
 
 function CircularMenu() {
  const [isActive, setIsActive] = useState(false);
@@ -126,44 +127,40 @@ function CircularMenu() {
      <div className={`hideMoon ${isActive ? "hiddenMoon" : "hideMoon"}`}>
       <ul>
        <li style={{ "--i": 0 } as any} className="menuItemMoon">
-        <a href="">
+        <Link href="/screens/categories/5">
          <p>School</p>
-        </a>
+        </Link>
        </li>
        <li style={{ "--i": 1 } as any} className="menuItemMoon">
-        <a href="#">
+        <Link href="/screens/categories/0">
          <p style={{ transform: "rotate(270deg)" }}>Coding</p>
-        </a>
+        </Link>
        </li>
        <li style={{ "--i": 2 } as any} className="menuItemMoon">
-        <a href="#">
-         <p style={{ transform: "rotate(180deg)" }}>Love</p>
-        </a>
+        <Link href="/screens/categories/3">
+         <p style={{ transform: "rotate(180deg)" }}>Relationship</p>
+        </Link>
        </li>
        <li style={{ "--i": 3 } as any} className="menuItemMoon">
-        <a href="#">
+        <Link href="/screens/categories/4">
          <p style={{ transform: "rotate(90deg)" }}>Work</p>
-        </a>
+        </Link>
        </li>
        <li style={{ "--i": 4 } as any} className="menuItemMoon">
-        <a href="#">
+        <Link href="/screens/categories/2">
          <p>Health</p>
-        </a>
+        </Link>
        </li>
-       <li style={{ "--i": 5 } as any} className="menuItemMoon">
-        <a href="#">
-         <p style={{ transform: "rotate(270deg)" }}>Anxiety</p>
-        </a>
-       </li>
+
        <li style={{ "--i": 6 } as any} className="menuItemMoon">
-        <a href="#">
+        <Link href="/screens/categories/5">
          <p style={{ transform: "rotate(180deg)" }}>General</p>
-        </a>
+        </Link>
        </li>
        <li style={{ "--i": 7 } as any} className="menuItemMoon">
-        <a href="#">
+        <Link href="/family">
          <p style={{ transform: "rotate(90deg)" }}>Family</p>
-        </a>
+        </Link>
        </li>
       </ul>
      </div>

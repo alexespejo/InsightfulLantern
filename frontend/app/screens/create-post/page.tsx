@@ -60,19 +60,22 @@ function CreatePost() {
  };
 
  return (
-  <div className="flex flex-col items-center">
+  <div className="flex flex-col items-center w-screen">
    <Navbar />
    <div
-    className="mt-10 sm:w-full sm:max-w-sm"
+    className="mt-10 bg-creamy base-text rounded-xl p-4 w-1/3 h-1/2"
     style={{
      marginTop: 200,
     }}
    >
+    <h1 className="text-2xl base-text font-bold border-b-2 base-border mb-2">
+     Share your story
+    </h1>
     <div className="space-y-6">
      <div>
       <label
        htmlFor="category"
-       className="block text-sm font-medium leading-6 text-white"
+       className="block text-lg font-bold  leading-6  base-text "
       >
        Category
       </label>
@@ -83,9 +86,11 @@ function CreatePost() {
         value={category}
         onChange={(e) => setCategory(e.target.value)}
         required
-        className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
+        className="select select-bordered bg-creamy w-full  border-2 base-border"
        >
-        <option value="">Select Category</option>
+        <option value="" className="font-bold">
+         Select Category
+        </option>
         {CATEGORIES.map((cat, index) => (
          <option key={index} value={cat}>
           {cat}
@@ -96,11 +101,8 @@ function CreatePost() {
      </div>
 
      <div>
-      <label
-       htmlFor="title"
-       className="block text-sm font-medium leading-6 text-white"
-      >
-       Title/Topic
+      <label htmlFor="title" className="font-bold text-lg">
+       Title Your Post
       </label>
       <div className="mt-2">
        <input
@@ -110,16 +112,14 @@ function CreatePost() {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         required
-        className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
+        className="input input-bordered bg-creamy base-border border-2 w-full "
+        placeholder="Type here"
        />
       </div>
      </div>
 
      <div>
-      <label
-       htmlFor="post"
-       className="block text-sm font-medium leading-6 text-white"
-      >
+      <label htmlFor="post" className="block text-lg font-bold leading-6 ">
        Post
       </label>
       <div className="mt-2">
@@ -129,16 +129,16 @@ function CreatePost() {
         value={post}
         onChange={(e) => setPost(e.target.value)}
         required
-        className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6"
+        className="select select-bordered bg-creamy w-full  border-2 base-border"
        />
       </div>
      </div>
 
-     <div>
+     <div className="mr-auto">
       <button
        onClick={createPost}
        disabled={isPosting}
-       className={`flex w-full justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+       className={`self-end lantern-btn ${
         isPosting ? "opacity-40 cursor-not-allowed" : ""
        }`}
       >

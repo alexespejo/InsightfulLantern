@@ -2,8 +2,15 @@ import { signOut } from "next-auth/react";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 const Navbar = () => {
+ const session = useSession({
+  required: true,
+  onUnauthenticated() {
+   redirect("/screens/signin");
+  },
+ });
  return (
   <div
    className="navbar bg-transparent relative text-slate-300"
@@ -14,7 +21,7 @@ const Navbar = () => {
   >
    <div className="flex-1">
     {/* Use an anchor tag to wrap the image */}
-    <a href="/profile" className="btn text-xl h-fit p-2">
+    <a href="/" className="btn text-xl h-fit p-2">
      <Image
       className="mask mask-decagon"
       src="/assets/logo.png"
