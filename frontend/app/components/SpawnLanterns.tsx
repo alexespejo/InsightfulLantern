@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { getPostData } from "../firebase/firestore";
 
-function SpawnLanterns() {
+function SpawnLanterns({ category }: any) {
  const session = useSession({
   required: true,
   onUnauthenticated() {
@@ -24,7 +24,7 @@ function SpawnLanterns() {
  useEffect(() => {
   const fetchData = async () => {
    try {
-    const citiesData: any = await getPostData("Coding");
+    const citiesData: any = await getPostData(category);
     setPosts(citiesData);
     setLantern(citiesData.length);
    } catch (error: any) {
@@ -89,7 +89,7 @@ function SpawnLanterns() {
         className="tooltip text-lg"
         htmlFor={`modal-${index}`}
        >
-        <img style={imgStyle} src="assets/lantern.png"></img>
+        <img style={imgStyle} src="/assets/lantern.png"></img>
        </label>
       </motion.div>
 

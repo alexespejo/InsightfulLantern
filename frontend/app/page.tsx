@@ -65,7 +65,7 @@ export default function Home() {
    <RefreshButton />
    <Navbar />
    <div className="">
-    <SpawnLanterns />
+    {/* <SpawnLanterns /> */}
     {/* {[...Array(lantern)].map((_, index) => {
      return (
       <>
