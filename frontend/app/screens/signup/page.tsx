@@ -14,11 +14,18 @@ export default function Signup() {
   createUserWithEmailAndPassword(auth, email, password)
    .then((userCredential) => {
     const user = userCredential.user;
-    createUser(user.uid, user?.email);
+
+    if (user) {
+     // Check if user is not null or undefined
+     createUser(user.uid, user.email ?? "default-email@example.com");
+    } else {
+     // Handle the case where user is null
+     console.error("User is null");
+    }
    })
    .catch((error) => {
     const errorCode = error.code;
-    const errorMessage = error.message;
+    console.error(`Error: ${errorCode}`);
    });
  };
 
