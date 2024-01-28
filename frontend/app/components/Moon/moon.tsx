@@ -18,13 +18,13 @@ function CircularMenu() {
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(45deg, #8460ed, #19040a);
-        }
+            background: linear-gradient(to top, rgb(4, 21, 39), rgb(1, 7, 15)), url('/assets/cleanbackground.png');
+          }
         
         .menuMoon
         {
             position: relative;
-            width: 510px;
+            width: 500px;
             height: 250px;
             background: #f0f0;
             display: flex;
@@ -39,7 +39,7 @@ function CircularMenu() {
             left: 0;
             margin-top: -20px;
             list-style: none;
-            transform-origin: 250px;
+            transform-origin: 240px;
             transition: 0.5s;
             transition-delay: calc(0.1s * var(--i));
             transform: rotate(0deg) translateX(80px);
@@ -59,23 +59,23 @@ function CircularMenu() {
           height: 70px;
           background: radial-gradient(
             circle at 50% 50%,
-            #fff3d6 0%,
-            #ffda7b 51.04%,
-            #ffa700 100%
+            #ffe7b0 0%,
+            #fed05c 51.04%,
+            #c58000 100%
           );
           border-radius: 50%;
           transform: rotate(calc(360deg / 8 * var(--i)));
-          box-shadow: 0 0 20px yellow;
+          box-shadow: 0 0 20px #938200;
           color: #111;
           animation: glow 1.5s infinite alternate;
         }
         
         @keyframes glow {
           from {
-              box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
+              box-shadow: 0 0 10px #938200, 0 0 20px #938200, 0 0 30px #938200;
           }
           to {
-              box-shadow: 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow;
+              box-shadow: 0 0 20px #938200, 0 0 30px #938200, 0 0 40px #938200;
           }
       }
         .menuItemMoon a:hover

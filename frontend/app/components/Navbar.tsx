@@ -5,7 +5,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <div
-      className="navbar bg-base-100"
+      className="navbar bg-transparent relative"
       style={{
         position: "fixed",
         zIndex: "1000",
