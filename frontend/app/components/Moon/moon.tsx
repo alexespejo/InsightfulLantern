@@ -1,6 +1,6 @@
 import { transform } from "next/dist/build/swc";
 import React, { useState } from "react";
-import Link from "next/link";
+
 function CircularMenu() {
  const [isActive, setIsActive] = useState(false);
 
@@ -126,40 +126,44 @@ function CircularMenu() {
      <div className={`hideMoon ${isActive ? "hiddenMoon" : "hideMoon"}`}>
       <ul>
        <li style={{ "--i": 0 } as any} className="menuItemMoon">
-        <Link href="/screens/categories/5">
+        <a href="#">
          <p>School</p>
-        </Link>
+        </a>
        </li>
        <li style={{ "--i": 1 } as any} className="menuItemMoon">
-        <Link href="/screens/categories/0">
+        <a href="#">
          <p style={{ transform: "rotate(270deg)" }}>Coding</p>
-        </Link>
+        </a>
        </li>
        <li style={{ "--i": 2 } as any} className="menuItemMoon">
-        <Link href="/screens/categories/3">
+        <a href="#">
          <p style={{ transform: "rotate(180deg)" }}>Love</p>
-        </Link>
+        </a>
        </li>
        <li style={{ "--i": 3 } as any} className="menuItemMoon">
-        <Link href="/screens/categories/4">
+        <a href="#">
          <p style={{ transform: "rotate(90deg)" }}>Work</p>
-        </Link>
+        </a>
        </li>
        <li style={{ "--i": 4 } as any} className="menuItemMoon">
-        <Link href="/screens/categories/2">
+        <a href="#">
          <p>Health</p>
-        </Link>
+        </a>
        </li>
-
+       <li style={{ "--i": 5 } as any} className="menuItemMoon">
+        <a href="#">
+         <p style={{ transform: "rotate(270deg)" }}>Anxiety</p>
+        </a>
+       </li>
        <li style={{ "--i": 6 } as any} className="menuItemMoon">
-        <Link href="/screens/categories/1">
+        <a href="#">
          <p style={{ transform: "rotate(180deg)" }}>General</p>
-        </Link>
+        </a>
        </li>
        <li style={{ "--i": 7 } as any} className="menuItemMoon">
-        <Link href="/family">
+        <a href="#">
          <p style={{ transform: "rotate(90deg)" }}>Family</p>
-        </Link>
+        </a>
        </li>
       </ul>
      </div>
