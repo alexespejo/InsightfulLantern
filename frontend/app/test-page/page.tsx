@@ -4,7 +4,7 @@ import { getPostsFromUser } from "../firebase/firestore";
 import { useSession } from "next-auth/react";
 import Navbar from "../components/Navbar";
 function page() {
- const session = useSession();
+ //  const session = useSession();
  const [userPosts, setUserPosts] = useState([]);
 
  useEffect(() => {
