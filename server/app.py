@@ -21,6 +21,20 @@ document_type_in_plain_text = language_v2.Document.Type.PLAIN_TEXT
 
 language_code = "en"
 
+class Reply():
+     def __init__(self, flagged = False, entity = False, content = ""):
+        self._flagged = flagged
+        self._entity = entity
+        self._content = content  
+     def to_diction(self):
+        return {
+            'flagged': self._flagged,
+            'entity': self._entity,
+            'content': self._content
+        }   
+         
+    
+
 def sample_analyze_entities(text_content: str = "I live in Alaska") -> None:
     document = {
          "content": text_content,
@@ -77,10 +91,11 @@ def create_post():
             'replies': {},
             'user': data["user"]
         })
-
+        print("WORKED")
         return jsonify(result), 200
     except Exception as e:
          return jsonify({"error": str(e)}), 500
+         print("ERROR")
 
 
 @app.route("/createreply", methods=['POST'])
@@ -97,10 +112,10 @@ def create_reply():
         post_document = post_collection.get()
         replies = post_document.to_dict().get('replies', {})
 
-        replies[data["ruid"]] = data["content"]
+        reply_content = data["content"]
+        reply = Reply(sample_analyze_entities(reply_content), analyzeSentiment(reply_content), reply_content)
+        replies[data["ruid"]] = reply.to_diction()
         
-        if sample_analyze_entities(data["content"]) or analyzeSentiment(data["content"]):
-             return jsonify({"Error": "Sensitive Information"})
 
         post_collection.set({'replies': replies}, merge=True) 
 
