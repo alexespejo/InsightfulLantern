@@ -14,7 +14,7 @@ const Navbar = () => {
   >
    <div className="flex-1">
     {/* Use an anchor tag to wrap the image */}
-    <a href="/profile" className="btn btn-ghost text-xl h-fit p-2">
+    <a href="/profile" className="btn text-xl h-fit p-2">
      <Image
       className="mask mask-decagon"
       src="/assets/logo.png"
@@ -29,17 +29,17 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-3">
      <li>
       <Link href="/">
-       <button className="btn btn-ghost">Home</button>
+       <button className="btn">Home</button>
       </Link>
      </li>
      <li>
       <Link href="/screens/category">
-       <button className="btn btn-ghost">Category</button>
+       <button className="btn">Category</button>
       </Link>
      </li>
      <li>
       <Link href="/screens/about">
-       <button className="btn btn-ghost">About</button>
+       <button className="btn">About</button>
       </Link>
      </li>
      {/* User dropdown */}
