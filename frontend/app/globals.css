@@ -76,3 +76,12 @@ body {
  background: #fffce2;
  box-shadow: 0px 0px 9.6px 4px rgba(255, 252, 226, 0.75);
 }
+
+.glow-btn {
+ background-image: radial-gradient(
+  50% 50% at 50% 50%,
+  #ffe7b0 0,
+  #fed05c 51.04%,
+  #c58000 100%
+ );
+}

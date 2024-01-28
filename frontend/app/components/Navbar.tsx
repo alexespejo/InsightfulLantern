@@ -8,20 +8,21 @@ const Navbar = () => {
   <div
    className="navbar bg-transparent relative text-slate-300"
    style={{
-    position: "fixed",
+    position: "sticky",
+    top: "0",
     zIndex: "1000",
    }}
   >
    <div className="flex-1">
+    <Image
+     className="mask mask-decagon"
+     src="/assets/logo.png"
+     width={50}
+     height={50}
+     alt="logo"
+    />
     {/* Use an anchor tag to wrap the image */}
-    <a href="/" className="btn text-xl h-fit p-2">
-     <Image
-      className="mask mask-decagon"
-      src="/assets/logo.png"
-      width={50}
-      height={50}
-      alt="logo"
-     />
+    <a href="/" className="btn text-white  text-xl h-fit p-2">
      <h1>InsightfulLanterns</h1>
     </a>
    </div>
