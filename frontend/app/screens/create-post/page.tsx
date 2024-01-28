@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import Navbar from "@/app/components/Navbar";
-
+import Link from "next/link";
 const CATEGORIES = [
  "Coding",
  "General",
@@ -48,7 +48,6 @@ function CreatePost() {
     setCategory("");
     setTitle("");
     setPost("");
-    alert("success");
    } else {
     throw new Error("Failed to create post");
    }
@@ -113,28 +112,26 @@ function CreatePost() {
         onChange={(e) => setTitle(e.target.value)}
         required
         className="input input-bordered bg-creamy base-border border-2 w-full "
-        placeholder="Type here"
        />
       </div>
      </div>
-
-     <div>
-      <label htmlFor="post" className="block text-lg font-bold leading-6 ">
-       Post
-      </label>
-      <div className="mt-2">
-       <textarea
-        id="post"
-        name="post"
-        value={post}
-        onChange={(e) => setPost(e.target.value)}
-        required
-        className="select select-bordered bg-creamy w-full  border-2 base-border"
-       />
-      </div>
-     </div>
-
+        <div>
+            <label htmlFor="post" className="block text-lg font-bold leading-6">
+                Post
+            </label>
+            <div className="mt-2">
+                <textarea
+                    id="post"
+                    name="post"
+                    value={post}
+                    onChange={(e) => setPost(e.target.value)}
+                    required
+                    className="select select-bordered bg-creamy w-full border-2 base-border"
+                />
+            </div>
+        </div>
      <div className="mr-auto">
+      <a href="/">
       <button
        onClick={createPost}
        disabled={isPosting}
@@ -144,6 +141,7 @@ function CreatePost() {
       >
        {isPosting ? "Posting..." : "Post"}
       </button>
+      </a>
      </div>
     </div>
    </div>
