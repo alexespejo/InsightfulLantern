@@ -65,7 +65,7 @@ function CreatePost() {
    <div
     className="mt-10 bg-creamy base-text rounded-xl p-4 w-1/3 h-1/2"
     style={{
-     marginTop: 200,
+     marginTop: 130,
     }}
    >
     <h1 className="text-2xl base-text font-bold border-b-2 base-border mb-2">
