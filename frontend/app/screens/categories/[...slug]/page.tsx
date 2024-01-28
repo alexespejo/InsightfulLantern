@@ -1,8 +1,10 @@
-"use client";
+'use client';
 import Navbar from "@/app/components/Navbar";
 import SpawnLanterns from "@/app/components/SpawnLanterns";
 import PostButton from "@/app/components/PostButton";
 import Image from "next/image";
+import TitleCategory from "@/app/components/titleCategory";
+
 export default function Page({ params }: { params: { slug: string } }) {
  const categories = [
   "Coding",
@@ -28,8 +30,10 @@ export default function Page({ params }: { params: { slug: string } }) {
      height={40}
      alt="Refresh Icon"
     />
-   </a>
 
+    <TitleCategory category={categories[parseInt(params.slug)]} />
+
+   </a>
    <SpawnLanterns category={categories[parseInt(params.slug)]} />
   </div>
  );
