@@ -21,6 +21,7 @@ export default function Home() {
     },
   });
 
+<<<<<<< HEAD
   const [lantern, setLantern] = useState(50);
   const [windowWidth, setWindowWidth] = useState(0);
   // Use useEffect to access window.innerWidth
@@ -119,6 +120,81 @@ export default function Home() {
       </div>
     </div>
   );
+=======
+ const balloonStyle: MotionStyle = {
+  width: "150px",
+  height: "150px",
+  borderRadius: "50%",
+  background: "transparent",
+  position: "absolute",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontSize: "14px",
+  color: "white",
+ };
+
+ return (
+  <div>
+   <PostButton />
+   <Navbar />
+   {[...Array(lantern)].map((_, index) => {
+    return (
+     <>
+      <motion.div
+       key={index}
+       style={{
+        ...balloonStyle,
+        left: `${Math.random() * (windowWidth - 50)}px`,
+       }}
+       initial="initial"
+       animate="animate"
+       exit="exit"
+       variants={balloonVariants}
+       transition={{
+        duration: Math.floor(Math.random() * 6) + 10,
+        ease: "linear",
+        delay: index * 0.5,
+        yoyo: Infinity,
+       }}
+      >
+       {/* Image */}
+       <label
+        data-tip="hello hello hello hello"
+        className="tooltip text-lg"
+        htmlFor={`modal-${index}`}
+       >
+        <img style={imgStyle} src="assets/lantern.png"></img>
+       </label>
+      </motion.div>
+
+      {/* Modal */}
+      <div className="tooltip">
+       <input type="checkbox" id={`modal-${index}`} className="modal-toggle" />
+       <div className="modal" role="dialog">
+        <div className="modal-box">
+         <h3 className="font-bold text-lg">{index}</h3>
+         <h3>Category</h3>
+         <textarea></textarea>
+         <h3>Title</h3>
+         <textarea></textarea>
+         <h3>Post</h3>
+         <textarea></textarea>
+         {/* <p className="py-4">This modal works with a hidden checkbox!</p> */}
+         <div className="modal-action">
+          <label htmlFor={`modal-${index}`} className="btn">
+           Close!
+          </label>
+         </div>
+        </div>
+       </div>
+      </div>
+     </>
+    );
+   })}
+  </div>
+ );
+>>>>>>> f916be487bd91eddd9fd7a42021e93fafc543816
 }
 
 Home.requireAuth = true;
