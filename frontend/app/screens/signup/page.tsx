@@ -36,8 +36,8 @@ export default function Signup() {
      <Image
       src="/assets/logo.png"
       className="self-center"
-      width={200}
-      height={200}
+      width={150}
+      height={150}
       alt="logo"
      />
      <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
